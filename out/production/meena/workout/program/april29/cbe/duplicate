@@ -1,0 +1,5 @@
+
+select name,count(name) countemp
+from employee
+group by name
+having count(name)>1

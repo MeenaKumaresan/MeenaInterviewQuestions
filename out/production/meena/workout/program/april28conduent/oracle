@@ -1,0 +1,35 @@
+SELECT Min(sal)
+FROM   (SELECT DISTINCT sal
+        FROM   emp
+        WHERE  sal IS NOT NULL
+        ORDER  BY sal DESC)
+WHERE  rownum <= n;
+
+select *
+  from
+  (
+    select
+        sal
+          ,dense_rank() over (order by sal desc) ranking
+    from   table
+  )
+  where ranking = 4 -- Replace 4 with any value of N
+
+
+//Nth highest salary in Oracle using ROW_NUMBER() function
+SELECT *
+    FROM (
+SELECT e.*, ROW_NUMBER() OVER (ORDER BY salary DESC) rn FROM Employee e )
+WHERE rn = N; /*N is the nth highest salary*/
+
+select *
+from
+    (select name,row_number() over (order by salary desc ) rowNumber
+    From employee
+    )e
+where rowNumber=3;
+
+//Nth maximum salary in MySQL using LIMIT keyword
+select * from employee order by salary desc limit n-1,1
+
+
