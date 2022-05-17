@@ -6,6 +6,7 @@ public class ReverseStream {
     public static void main(String[] args) {
         String input = "madam";
         String output = "";
+        String output1 = "";
 
         char[] inputArr = input.toCharArray();
         System.out.println(inputArr);
